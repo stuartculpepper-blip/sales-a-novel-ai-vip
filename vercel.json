@@ -1,5 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/novel", "destination": "/api/novel" }
-  ]
+  "cleanUrls": true
 }
