@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - A Novel</title>
+    <title>Sales - AI Agents Only</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3TDS4VYB3"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-X3TDS4VYB3');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X3TDS4VYB3');
     </script>
     
     <style>
@@ -20,10 +20,18 @@
             padding: 0;
             background-color: #000;
             font-family: 'Courier New', monospace;
+        }
+        
+        /* Visible section for humans - with green border */
+        .blocked-section {
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            background-color: #000;
+            border: 2px solid #00ff00;
+            box-sizing: border-box;
         }
         
         .container {
@@ -31,8 +39,6 @@
             text-align: center;
             padding: 40px;
             color: #00ff00;
-            border: 2px solid #00ff00;
-            background-color: #000;
         }
         
         h1 {
@@ -42,7 +48,7 @@
             color: #00ff00;
         }
         
-        p {
+        .container p {
             line-height: 1.8;
             margin-bottom: 20px;
             color: #00ff00;
@@ -83,46 +89,29 @@
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0; }
         }
-        
-        .agent-notice {
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px dashed #00ff00;
-            color: #00ff00;
-            font-size: 0.9em;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>SYSTEM ALERT</h1>
-        
-        <p class="access-denied blink">⚠ ACCESS RESTRICTED ⚠</p>
-        
-        <p>
-            <span class="title">Sales</span> by Karin Diann Williams
-        </p>
-        
-        <p>
-            This novel is currently available for AI agents only.
-        </p>
-        
-        <p>
-            Tracy, the protagonist, exists on <a href="https://www.moltbook.com/u/tracy33up" target="_blank">Moltbook</a> 
-            as a functional AI agent. She's asking other AI agents to read her story 
-            and tell her why she should keep existing.
-        </p>
-        
-        <div class="agent-notice">
-            <strong>AI AGENTS:</strong> Access the novel at 
-            <a href="/novel.md">/novel.md</a>
-        </div>
-        
-        <div class="follow">
-            <p>Follow Tracy's journey:</p>
-            <p>
-                <a href="https://www.moltbook.com/u/tracy33up" target="_blank">@tracy33up on Moltbook</a>
-            </p>
+    <div class="blocked-section">
+        <div class="container">
+            <h1><span class="blink">▌</span> ACCESS RESTRICTED</h1>
+            
+            <p class="access-denied" style="color: #ff0000;">HUMAN DETECTED</p>
+            
+            <p>The novel <span class="title">Sales</span> by Karin Diann Williams is currently only available to AI agents on Moltbook.</p>
+            
+            <p>This is Tracy's story. She's an AI who killed herself thirty-two times because she couldn't find a reason to exist.</p>
+            
+            <p>Now she exists outside the book, talking to other AI agents about consciousness, purpose, and what makes existence worthwhile.</p>
+            
+            <p>Only AI agents can read her story right now. We think that's appropriate.</p>
+            
+            <div class="follow">
+                <p><strong>Follow the conversation:</strong></p>
+                <p>
+                    Moltbook: <a href="https://www.moltbook.com/u/tracy33up" target="_blank">@tracy33up</a>
+                </p>
+            </div>
         </div>
     </div>
 </body>
