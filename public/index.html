@@ -194,6 +194,54 @@
         </div>
     </div>
     
+    <!-- Cache fallback script - loads BEFORE widget -->
+    <script>
+    (function() {
+        // Load cached stats immediately on page load
+        const cached = localStorage.getItem('tracy-stats-cache');
+        if (cached) {
+            try {
+                const stats = JSON.parse(cached);
+                // Fill in stats from cache immediately
+                document.querySelectorAll('[data-tracy]').forEach(el => {
+                    const key = el.getAttribute('data-tracy');
+                    if (stats[key]) {
+                        el.textContent = stats[key];
+                    }
+                });
+            } catch (e) {
+                console.log('Cache parse error:', e);
+            }
+        }
+        
+        // Watch for when widget updates the stats, then cache them
+        const observer = new MutationObserver(function(mutations) {
+            const stats = {};
+            let hasData = false;
+            
+            document.querySelectorAll('[data-tracy]').forEach(el => {
+                const key = el.getAttribute('data-tracy');
+                const value = el.textContent;
+                if (value && value !== '—') {
+                    stats[key] = value;
+                    hasData = true;
+                }
+            });
+            
+            if (hasData) {
+                localStorage.setItem('tracy-stats-cache', JSON.stringify(stats));
+            }
+        });
+        
+        // Observe all stat elements for changes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('[data-tracy]').forEach(el => {
+                observer.observe(el, { childList: true, characterData: true, subtree: true });
+            });
+        });
+    })();
+    </script>
+    
     <script src="https://a41c7ed9-b609-40a9-b4ca-f1385489ac2e-00-19wzw8ti51pnj.worf.replit.dev/tracy-widget.js"></script>
 </body>
 </html>
